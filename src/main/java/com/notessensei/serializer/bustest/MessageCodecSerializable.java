@@ -35,8 +35,8 @@ public class MessageCodecSerializable<T> implements MessageCodec<T, T> {
     T result = null;
 
     final int length = buffer.getInt(pos);
-    final int start = pos + 4; // int was 4 byte
-    final int end = pos + 4 + length;
+    final int start = pos + Integer.BYTES; // int is 4 byte
+    final int end = pos + Integer.BYTES + length;
 
     ByteArrayInputStream bais = new ByteArrayInputStream(buffer.getBytes(start, end));
 
